@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "HojXtDwZQXM=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Facu\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Facu\\.nuget\\packages\\openqa.selenium.chrome.chromedriverextensions\\1.2.0\\openqa.selenium.chrome.chromedriverextensions.1.2.0.nupkg.sha512",
+    "C:\\Users\\Facu\\.nuget\\packages\\selenium.chrome.webdriver\\85.0.0\\selenium.chrome.webdriver.85.0.0.nupkg.sha512",
+    "C:\\Users\\Facu\\.nuget\\packages\\selenium.webdriver\\4.0.0-beta2\\selenium.webdriver.4.0.0-beta2.nupkg.sha512",
+    "C:\\Users\\Facu\\.nuget\\packages\\selenium.webdriver.chromedriver\\131.0.6778.20400\\selenium.webdriver.chromedriver.131.0.6778.20400.nupkg.sha512",
+    "C:\\Users\\Facu\\.nuget\\packages\\selenium.webdriver.iedriver\\4.14.0\\selenium.webdriver.iedriver.4.14.0.nupkg.sha512",
+    "C:\\Users\\Facu\\.nuget\\packages\\seleniumextras.waithelpers\\1.0.2\\seleniumextras.waithelpers.1.0.2.nupkg.sha512",
+    "C:\\Users\\Facu\\.nuget\\packages\\seleniumwebdrivers\\1.0.0.4\\seleniumwebdrivers.1.0.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}
