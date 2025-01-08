@@ -1,8 +1,10 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
+using System.Diagnostics;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using System.Linq;
 
 namespace EventScraperBackend
 {
@@ -10,8 +12,12 @@ namespace EventScraperBackend
     {
         static void Main(string[] args)
         {
+            // Cerrar consolas existentes
+         
+            IWebDriver driver = null;
             try
             {
+
                 // Configuracion
                 ChromeOptions options = new ChromeOptions();
                 options.AddArgument("--headless");
@@ -22,11 +28,12 @@ namespace EventScraperBackend
 
 
                 // Inicialización
-                IWebDriver driver = new ChromeDriver("C:\\SeleniumDrivers\\chromedriver");
+                driver = new ChromeDriver("C:\\SeleniumDrivers\\chromedriver");
+
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
                 driver.Navigate().GoToUrl("https://www.ticketek.com.ar/musica");
 
-                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
                 // Buscar un elemento
                 var contenedores = driver.FindElements(By.CssSelector("div.tkt-artist-list-image-item.relative.col-xs-10.col-sm-33.col-md-10"));
 
@@ -37,19 +44,16 @@ namespace EventScraperBackend
                     try
                     {
                         // Imprimir el HTML del contenedor para inspección
-                        var containerHTML = container.GetAttribute("innerHTML");
-                        Console.WriteLine("HTML contenedor: " + containerHTML);
+                        //var containerHTML = container.GetAttribute("innerHTML");
+                        //Console.WriteLine("HTML contenedor: " + containerHTML);
 
-                        // Esperar a que el elemento sea visible y luego extraer el texto
-                        var nameElement = container.FindElement(By.CssSelector("div.info-container.absolute span.text-uppercase.info-title"));
-                        Console.WriteLine("Elemento encontrado: " + nameElement.ToString());
-                        var name = nameElement.Text;
-                        Console.WriteLine(name);
 
-                        // Extraer la URL de la imagen
+                        // Extraer la URL de la imagen y el nombre
                         var imageElement = container.FindElement(By.CssSelector("img.img-responsive.tkt-img-info.col-xs-10.no-padding"));
                         var imageUrl = imageElement.GetAttribute("src");
+                        var name = imageElement.GetAttribute("alt");
                         Console.WriteLine(imageUrl);
+                        Console.WriteLine(name);
 
                     }
                     catch (NoSuchElementException e)
@@ -61,10 +65,20 @@ namespace EventScraperBackend
                         Console.WriteLine($"Ocurrio un error: {ex.Message}");
                     }
                 }
+
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Ocurrio un error: {ex.Message}");
+            }
+            finally
+            {
+                if (driver != null)
+                {
+                    driver.Quit();
+                }
+
             }
         }
     }
