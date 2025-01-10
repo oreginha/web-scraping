@@ -13,6 +13,11 @@
     <SourceRoot Include="C:\Users\Facu\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.ml.cpumath\4.0.0\build\netstandard2.0\Microsoft.ML.CpuMath.props" Condition="Exists('$(NuGetPackageRoot)microsoft.ml.cpumath\4.0.0\build\netstandard2.0\Microsoft.ML.CpuMath.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.ml\4.0.0\build\netstandard2.0\Microsoft.ML.props" Condition="Exists('$(NuGetPackageRoot)microsoft.ml\4.0.0\build\netstandard2.0\Microsoft.ML.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.ml.fasttree\4.0.0\build\netstandard2.0\Microsoft.ML.FastTree.props" Condition="Exists('$(NuGetPackageRoot)microsoft.ml.fasttree\4.0.0\build\netstandard2.0\Microsoft.ML.FastTree.props')" />
+  </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgSeleniumWebDrivers Condition=" '$(PkgSeleniumWebDrivers)' == '' ">C:\Users\Facu\.nuget\packages\seleniumwebdrivers\1.0.0.4</PkgSeleniumWebDrivers>
   </PropertyGroup>

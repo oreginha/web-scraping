@@ -50,6 +50,42 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AngleSharp": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Azure.AI.TextAnalytics": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.72, )"
+            },
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.ML.CpuMath": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.ML.DataView": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.ML.FastTree": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "Microsoft.ML.ImageAnalytics": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
             "OpenQA.Selenium.Chrome.ChromeDriverExtensions": {
               "target": "Package",
               "version": "[1.2.0, )"
@@ -73,6 +109,18 @@
             "SeleniumWebDrivers": {
               "target": "Package",
               "version": "[1.0.0.4, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [

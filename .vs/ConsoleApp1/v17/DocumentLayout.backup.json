@@ -7,8 +7,20 @@
       "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\consoleapp1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\consoleapp1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\apiconection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\apiconection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\scrapers\\ticketekscraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\scrapers\\ticketekscraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\elementextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\elementextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\eventdataextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\eventdataextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,15 +46,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConsoleApp1.csproj",
-              "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
-              "RelativeDocumentMoniker": "ConsoleApp1\\ConsoleApp1.csproj",
-              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
-              "RelativeToolTip": "ConsoleApp1\\ConsoleApp1.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-08T04:50:52.126Z"
+              "DocumentIndex": 2,
+              "Title": "TicketekScraper.cs",
+              "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\SCRAPERS\\TicketekScraper.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\SCRAPERS\\TicketekScraper.cs",
+              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\SCRAPERS\\TicketekScraper.cs",
+              "RelativeToolTip": "ConsoleApp1\\SCRAPERS\\TicketekScraper.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAmwEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T03:19:05.382Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -52,9 +65,48 @@
               "RelativeDocumentMoniker": "ConsoleApp1\\Program.cs",
               "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\Program.cs",
               "RelativeToolTip": "ConsoleApp1\\Program.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAQwHMAAABtAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T15:16:22.018Z",
+              "WhenOpened": "2025-01-10T02:09:08.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApiConection.cs",
+              "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\ApiConection.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\CORE\\ApiConection.cs",
+              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\ApiConection.cs",
+              "RelativeToolTip": "ConsoleApp1\\CORE\\ApiConection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T01:50:44.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ElementExtractor.cs",
+              "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\ElementExtractor.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\CORE\\ElementExtractor.cs",
+              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\ElementExtractor.cs",
+              "RelativeToolTip": "ConsoleApp1\\CORE\\ElementExtractor.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwDwAAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T17:14:54.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EventDataExtractor.cs",
+              "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\EventDataExtractor.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\CORE\\EventDataExtractor.cs",
+              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\EventDataExtractor.cs",
+              "RelativeToolTip": "ConsoleApp1\\CORE\\EventDataExtractor.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T16:42:45.873Z",
               "EditorCaption": ""
             }
           ]
