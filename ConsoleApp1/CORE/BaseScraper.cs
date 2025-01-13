@@ -7,8 +7,8 @@ namespace EventScraperBackend.Core
 {
     public abstract class BaseScraper
     {
-          protected IWebDriver driver;
-        protected WebDriverWait wait;
+          public IWebDriver driver;
+        public WebDriverWait wait;
         public BaseScraper(string driverPath, string websiteUrl, int timeoutSeconds)
         {
                  // Configuracion

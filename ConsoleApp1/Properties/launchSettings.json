@@ -1,7 +1,10 @@
 {
   "profiles": {
     "ConsoleApp1": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "environmentVariables": {
+        "GEMINI_API_KEY": "AIzaSyBNLqtLDCK-oiVXMC9122qS10iHdFho_7A"
+      }
     }
   }
 }

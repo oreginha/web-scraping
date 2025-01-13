@@ -49,7 +49,6 @@
 
   <ItemGroup>
     <Folder Include="MODELS\" />
-    <Folder Include="SCRAPERS\" />
   </ItemGroup>
 
 </Project>

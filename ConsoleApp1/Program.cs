@@ -1,57 +1,68 @@
 using System;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System.Threading.Tasks;
 using EventScraperBackend;
 using EventScraperBackend.Core;
-using EventScraperBackend.Models;
-using System.Collections.Generic;
+using OpenQA.Selenium.Support.UI;
 
 namespace ConsoleApp1
 {
     class Program
     {
-        static async Task Main(string[] args)
+      public static async Task Main(string[] args)
         {
             string driverPath = "C:\\SeleniumDrivers\\chromedriver";
-            string websiteUrl = "https://www.ticketek.com.ar/eventos";
-            int timeoutSeconds = 20;
-            var ticketekScraper = new TicketekScraper(driverPath, websiteUrl, timeoutSeconds);
+            string websiteUrl = "https://www.ticketek.com.ar";
+            int randomPort = new Random().Next(49152, 65535);
+
+            // Configuración del driver
+            ChromeOptions options = new ChromeOptions();
+            //options.AddArgument("--headless");
+            options.AddArgument("--disable-gpu");
+            options.AddArgument("--no-sandbox");
+            options.AddArgument("--disable-dev-shm-usage");
+            options.AddArgument($"--remote-debugging-port={randomPort}"); // Usar el puerto aleatorio
+
             var apiConection = new ApiConection();
 
-            List<EventData> eventList = ticketekScraper.ScrapeEvents();
-
-            if (eventList != null)
+            using (IWebDriver driver = new ChromeDriver(driverPath, options))
             {
-                foreach (EventData eventData in eventList)
+                WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
+                // Navegar a la URL
+                driver.Navigate().GoToUrl(websiteUrl);
+
+                // Espera explícita para que la página se cargue completamente
+                ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState === 'complete'");
+                Console.WriteLine("Página cargada correctamente. Presiona cualquier tecla para extraer el HTML y procesarlo, o ESC para salir.");
+
+                var eventProcessor = new EventProcessor(apiConection, driver, wait);
+                bool exit = false;
+                while (!exit)
                 {
-                    string prompt = "Analiza la siguiente información del evento y clasificalo en una categoría (Música, Familia, Teatro, Deportes, Especiales). Si la informacion de fecha, horario y precio son multiples, devuelve todos los valores disponibles";
+                    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-                    try
+
+                    if (keyInfo.Key == ConsoleKey.Escape)
                     {
-                        string response = await apiConection.SendPromptWithEventAsync(prompt, eventData);
-                        if (response != null)
-                        {
-                            Console.WriteLine("Respuesta de la API:");
-                            Console.WriteLine(response);
-                        }
-                        else
-                        {
-                            Console.WriteLine("No se obtuvo respuesta de la API");
-                        }
+                        exit = true;
+                        Console.WriteLine("Programa finalizado.");
+                    }
+                    else
+                    {
+
+                        string html = driver.PageSource;
+                       string cleanHtml = HtmlCleaner.CleanHtml(html); // Limpiar el HTML
+
+                        Console.WriteLine("HTML extraído y enviado al EventProcessor.");
+                        eventProcessor.ProcessHtml(cleanHtml);
+                        await Task.Delay(2000);  // Espera de 2 segundos entre peticiones a la API.
+                        Console.WriteLine("Presiona cualquier tecla para extraer el html o ESC para salir");
 
                     }
-                    catch (ArgumentException e)
-                    {
-                        Console.WriteLine($"Error: {e.Message}");
-                    }
-
                 }
 
             }
-            else
-            {
-                Console.WriteLine("No se obtuvieron eventos de la página.");
-            }
-
 
         }
     }

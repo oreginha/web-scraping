@@ -1,6 +1,5 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using EventScraperBackend.Models;
@@ -11,44 +10,35 @@ namespace EventScraperBackend
     public class TicketekScraper : BaseScraper
     {
         private EventDataExtractor _dataExtractor;
-        public TicketekScraper(string driverPath, string websiteUrl, int timeoutSeconds)
+        private EventProcessor _eventProcessor;
+
+        public TicketekScraper(string driverPath, string websiteUrl, int timeoutSeconds, EventProcessor eventProcessor)
              : base(driverPath, websiteUrl, timeoutSeconds)
         {
             _dataExtractor = new EventDataExtractor();
+            _eventProcessor = eventProcessor;
         }
-        public List<EventData> ScrapeEvents()
+        private void WaitForPageLoad()
         {
-            List<EventData> eventList = new List<EventData>();
+            WebDriverWait waitPageLoad = new WebDriverWait(driver, TimeSpan.FromSeconds(120));
+            waitPageLoad.Until(d => ((IJavaScriptExecutor)d).ExecuteScript("return document.readyState").Equals("complete"));
+        }
+
+        public void ScrapeEvents()
+        {
             try
             {
-                // Buscar un elemento
-                IReadOnlyCollection<IWebElement> contenedoresIniciales = wait.Until(ExpectedConditions
-                   .PresenceOfAllElementsLocatedBy(By.CssSelector("div.tkt-artist-list-image-item.relative.col-xs-10")));
-
-                Console.WriteLine($"Total de contenedores encontrados: {contenedoresIniciales.Count}");
-
-                foreach (var contenedorInicial in contenedoresIniciales)
+                WaitForPageLoad(); // Esperar a que la página esté completamente cargada.
+                string html = driver.PageSource;
+                if (!string.IsNullOrEmpty(html))
                 {
-                    IWebElement container = contenedorInicial;
-                    try
-                    {
-                        var boton = container.FindElement(By.CssSelector("a"));
-                        var url = boton.GetAttribute("href");
+                    _eventProcessor.ProcessHtml(html);
+                    Console.WriteLine("HTML de la página extraído correctamente.");
 
-                        if (url != null)
-                        {
-                            EventData eventData = _dataExtractor.ExtractData(container, driver, wait, url);
-                            if (eventData != null)
-                            {
-                                eventList.Add(eventData);
-                                Console.WriteLine($"Elementos extraídos: Nombre: '{eventData.Name}', Imagen: '{eventData.ImageUrl}', URL: '{eventData.Url}', Imagen Detalle: '{eventData.ImageUrlDetail}', Descripcion: '{eventData.Description}', Fecha: '{eventData.Date}', Lugar: '{eventData.Place}', Direccion: '{eventData.FinallocationDiv}', URL Compra: '{eventData.BuyUrl}'");
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error en iteración (general): {ex.Message}");
-                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error al extraer el HTML de la página.");
                 }
             }
             catch (Exception ex)
@@ -59,7 +49,6 @@ namespace EventScraperBackend
             {
                 Dispose();
             }
-            return eventList;
         }
     }
 }
