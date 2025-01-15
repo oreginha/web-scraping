@@ -21,8 +21,11 @@ namespace EventScraperBackend.Core
         };
 
 
-        public static string CleanHtml(string html)
+        public static List<string> CleanHtml(string html)
         {
+            var section1 = "";
+            var section2 = "";
+            List<string> result = new List<string>();
             var doc = new HtmlAgilityPack.HtmlDocument();
             doc.LoadHtml(html);
 
@@ -32,10 +35,10 @@ namespace EventScraperBackend.Core
 
             if (mainSection == null && menuSection == null)
             {
-                return string.Empty;
+                return result;
             }
 
-            string combinedHtml = "";
+            //string combinedHtml = "";
             if (mainSection != null)
             {
                 var allNodesMain = mainSection.Descendants().ToList();
@@ -78,7 +81,7 @@ namespace EventScraperBackend.Core
                 {
                     node.Remove();
                 }
-                combinedHtml += mainSection.InnerHtml;
+               section1= mainSection.InnerHtml;
 
             }
             if (menuSection != null)
@@ -121,15 +124,18 @@ namespace EventScraperBackend.Core
                     node.Remove();
                 }
 
-                combinedHtml += menuSection.InnerHtml;
+                section1 = menuSection.InnerHtml;
 
             }
 
             //Eliminar lineas repetidas
-            string[] lines = combinedHtml.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            var uniqueLines = lines.Distinct();
-            combinedHtml = string.Join(Environment.NewLine, uniqueLines);
-            return combinedHtml;
+            string[] lines1 = section1.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            string[] lines2 = section2.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+            List<string> lines = new List<string>();
+            lines.AddRange(lines1);
+            lines.AddRange(lines2);
+            return lines;
 
         }
     }

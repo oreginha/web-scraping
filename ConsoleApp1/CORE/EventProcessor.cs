@@ -42,26 +42,36 @@ namespace EventScraperBackend
                Analiza el siguiente HTML de una página web de eventos y extrae la información relevante.
                 Identifica los contenedores principales que agrupan la información de cada evento.
                  Para cada contenedor, extrae la información del evento, incluyendo:
-                    - El selector CSS para la imagen del evento dentro del contenedor.
-                    - El atributo de la etiqueta img donde se encuentra la URL de la imagen.
-                    - El atributo de la etiqueta img donde se encuentra el nombre del evento.
-                    - El selector CSS para el link que contiene la URL del detalle del evento.
-                    - El atributo de la etiqueta a que tiene la URL del detalle del evento.
-                    - El selector CSS para el link que contiene la URL de compra del evento.
-                    - El atributo de la etiqueta a que tiene la URL de compra del evento.
+                    - nombre del evento.
+                    - direccion la imagen del evento (generalmente terminada en .png).
+                    - el dia y horario del evento.
+                    - el link para navegar hacia mas informacion.
+                    - categoria de elvento si figura (por ej. musica, teatro,cine, etc).
+                    - link de compra si figura.
+                    - contenedor del menu de las categorias si figura.
                 Devuelve un JSON con la siguiente estructura:
                 {
                   ""containers"": [
                         {
                            ""container_selector"": ""selector_del_contenedor"",
-                          ""image_selector"": ""selector_de_la_imagen"",
-                           ""image_url_attribute"": ""atributo_de_la_url_de_la_imagen"",
-                           ""image_name_attribute"": ""atributo_del_nombre_de_la_imagen"",
-                           ""link_selector"": ""selector_del_link"",
-                           ""link_url_attribute"": ""atributo_del_link"",
-                          
+                          ""nombre_evento"": ""nombre_del_evento"",
+                           ""image_url_png"": ""direccion_png"",
+                           ""dia_horario"": ""dia_y_horario_del_evento"",
+                           ""link_navegacion"": ""linga_de_navegacion_mas_informacion"",
+                           ""categoria"": ""categoria_del_even0"",
+                            ""link_compra"": ""link_de_compra"",
+                            ""menu_categorias"": ""menu_de_categorias"",
+                            ""contedor_menu_categorias"": ""selector_del_contenedor_menu_categorias""
                         }
                      ]
+                  ""categories"": [
+                        {
+                            ""menu_categorias"": ""menu_de_categorias""
+                            ""contedor_menu_categorias"": ""selector_del_contenedor_menu_categorias""
+                            ""category_selector"": ""selector_de_categoria"",
+                            ""category_url_attribute"": ""atributo_url_categoria""
+                        }
+                    ]
                  }
                 ";
 
@@ -106,111 +116,20 @@ namespace EventScraperBackend
                             try
                             {
                                 var jsonContent = JsonSerializer.Deserialize<ApiResponseData>(jsonText);
-
                                 // Procesar Contenedores de Eventos
                                 if (jsonContent?.Containers != null && jsonContent.Containers.Count > 0)
                                 {
                                     foreach (var containerElement in jsonContent.Containers)
                                     {
                                         string containerSelector = containerElement.container_selector;
-                                        string imageSelector = containerElement.image_selector;
-                                        string imageUrlAttribute = containerElement.image_url_attribute;
-                                        string imageNameAttribute = containerElement.image_name_attribute;
-                                        string linkSelector = containerElement.link_selector;
-                                        string linkUrlAttribute = containerElement.link_url_attribute;
-                                        string buyLinkSelector = containerElement.buy_link_selector;
-                                        string buyLinkUrlAttribute = containerElement.buy_link_url_attribute;
-                                        // Extraer el elemento más interno si existe
-
-
-                                        // Remover el punto inicial del selector, si existe.
-                                        if (containerSelector.StartsWith("."))
-                                        {
-                                            containerSelector = containerSelector.Substring(1);
-                                        }
-                                        if (imageSelector.StartsWith("."))
-                                        {
-                                            imageSelector = imageSelector.Substring(1);
-                                        }
-                                        if (linkSelector != null)
-                                        {
-                                            if (linkSelector.StartsWith("."))
-                                            {
-                                                linkSelector = linkSelector.Substring(1);
-                                            }
-                                        }
-
-                                        if (buyLinkSelector != null)
-                                        {
-                                            if (buyLinkSelector.StartsWith("."))
-                                            {
-                                                buyLinkSelector = buyLinkSelector.Substring(1);
-                                            }
-                                        }
-
-                                        // Nueva lógica para eliminar "div.", "row."
-                                        if (containerSelector.StartsWith("div."))
-                                        {
-                                            containerSelector = containerSelector.Substring(4);
-                                        }
-                                        if (containerSelector.StartsWith("row."))
-                                        {
-                                            containerSelector = containerSelector.Substring(4);
-                                        }
-                                        if (imageSelector.StartsWith("div."))
-                                        {
-                                            imageSelector = imageSelector.Substring(4);
-                                        }
-                                        if (imageSelector.StartsWith("row."))
-                                        {
-                                            imageSelector = imageSelector.Substring(4);
-                                        }
-                                        if (linkSelector != null)
-                                        {
-                                            if (linkSelector.StartsWith("div."))
-                                            {
-                                                linkSelector = linkSelector.Substring(4);
-                                            }
-                                            if (linkSelector.StartsWith("row."))
-                                            {
-                                                linkSelector = linkSelector.Substring(4);
-                                            }
-                                        }
-                                        if (buyLinkSelector != null)
-                                        {
-                                            if (buyLinkSelector.StartsWith("div."))
-                                            {
-                                                buyLinkSelector = buyLinkSelector.Substring(4);
-                                            }
-                                            if (buyLinkSelector.StartsWith("row."))
-                                            {
-                                                buyLinkSelector = buyLinkSelector.Substring(4);
-                                            }
-                                        }
-
-                                        // sacar punto y convertiro en espacio
-                                        if (containerSelector.Contains("."))
-                                        {
-                                            containerSelector = containerSelector.Replace(".", " ");
-                                        }
-                                        if (imageSelector.Contains("."))
-                                        {
-                                            imageSelector = imageSelector.Replace(".", " ");
-                                        }
-                                        if (linkSelector != null && linkSelector.Contains("."))
-                                        {
-                                            linkSelector = linkSelector.Replace(".", " ");
-                                        }
-                                        if (buyLinkSelector != null && buyLinkSelector.Contains("."))
-                                        {
-                                            buyLinkSelector = buyLinkSelector.Replace(".", " ");
-                                        }
-                                        // Nueva lógica para tomar solo la primera parte del selector si contiene espacios
-                                        if (containerSelector.Contains(" "))
-                                        {
-                                            containerSelector = containerSelector.Split(' ')[0];
-                                        }
-
+                                        string nombreEvento = containerElement.nombre_evento;
+                                        string imageUrlPng = containerElement.image_url_png;
+                                        string diaHorario = containerElement.dia_horario;
+                                        string linkNavegacion = containerElement.link_navegacion;
+                                        string categoria = containerElement.categoria;
+                                        string linkCompra = containerElement.link_compra;
+                                        string menuCategorias = containerElement.menu_categorias;
+                                        string contedorMenuCategorias = containerElement.contedor_menu_categorias;
                                         Console.WriteLine($"Selector de contenedores: {containerSelector}");
                                         if (containerSelector.StartsWith(".") || containerSelector.StartsWith("#") || !string.IsNullOrEmpty(containerSelector))
                                         {
@@ -220,45 +139,32 @@ namespace EventScraperBackend
                                             {
                                                 foreach (var contenedorInicial in contenedoresIniciales)
                                                 {
-                                                    string url = null;
-                                                    string buyUrl = null;
-                                                    string eventName = null;
-                                                    HtmlNode imageElement = null;
                                                     try
                                                     {
-                                                        if (linkSelector != null)
-                                                        {
-                                                            HtmlNode boton = ElementExtractor.FindElement(html, linkSelector);
-                                                            url = ElementExtractor.ExtractAttribute(boton, linkUrlAttribute);
-                                                        }
-                                                        else
-                                                        {
-                                                            Console.WriteLine("No se encontró un selector para el link del evento.");
-                                                        }
+                                                        HtmlNode boton = ElementExtractor.FindElement(html, linkNavegacion);
+                                                        string url = ElementExtractor.ExtractAttribute(boton, "href");
 
-                                                        if (buyLinkSelector != null)
+                                                        HtmlNode buyButton = ElementExtractor.FindElement(html, linkCompra);
+                                                        string buyUrl = ElementExtractor.ExtractAttribute(buyButton, "href");
+                                                        HtmlNode imageElement = ElementExtractor.FindElement(html, imageUrlPng);
+                                                        string eventName = ElementExtractor.ExtractAttribute(imageElement, "alt");
+                                                        if (buyUrl != null && buyUrl.StartsWith("https://www.ticketek.com.ar/websource"))
                                                         {
-                                                            HtmlNode buyButton = ElementExtractor.FindElement(html, buyLinkSelector);
-                                                            buyUrl = ElementExtractor.ExtractAttribute(buyButton, buyLinkUrlAttribute);
+                                                            _websourceLinks.Add(buyUrl);
                                                         }
-                                                        else
+                                                        else if (buyUrl != null)
                                                         {
-                                                            Console.WriteLine("No se encontró un selector para el link de compra del evento.");
-                                                        }
-
-                                                        if (imageSelector != null)
-                                                        {
-                                                            imageElement = ElementExtractor.FindElement(html, imageSelector);
-                                                            eventName = ElementExtractor.ExtractAttribute(imageElement, imageNameAttribute);
+                                                            _buyLinks.Add(new Tuple<string, string>(eventName, buyUrl));
                                                         }
 
 
-                                                        EventData eventData = _dataExtractor.ExtractData(contenedorInicial, _driver, _wait, url, imageSelector, imageUrlAttribute, imageNameAttribute, linkSelector, linkUrlAttribute, contenedorInicial.InnerHtml);
+                                                        EventData eventData = _dataExtractor.ExtractData(contenedorInicial, _driver, _wait, url, imageUrlPng, imageUrlPng, nombreEvento, linkCompra, linkNavegacion, contenedorInicial.InnerHtml);
                                                         if (eventData != null)
                                                         {
                                                             ProcessEvent(eventData);
                                                             Console.WriteLine($"Elementos extraídos: Nombre: '{eventData.Name}', Imagen: '{eventData.ImageUrl}', URL: '{eventData.Url}', Imagen Detalle: '{eventData.ImageUrlDetail}', Descripcion: '{eventData.Description}', Fecha: '{eventData.Date}', Lugar: '{eventData.Place}', Direccion: '{eventData.FinallocationDiv}', URL Compra: '{eventData.BuyUrl}'");
                                                         }
+
 
                                                     }
                                                     catch (Exception ex)
@@ -270,60 +176,70 @@ namespace EventScraperBackend
                                         }
                                         else
                                         {
-                                            Console.WriteLine("No se encontraron contenedores en la respuesta de la API.");
-                                        }
-                                        if (jsonContent.Categories != null && jsonContent.Categories.Count > 0)
-                                        {
-                                            foreach (var categoryElement in jsonContent.Categories)
-                                            {
-                                                string categorySelector = categoryElement.category_selector;
-                                                string categoryUrlAttribute = categoryElement.category_url_attribute;
-
-                                                List<HtmlNode> categoryElements = ElementExtractor.FindElementsFromHtml(html, categorySelector);
-                                                if (categoryElements != null)
-                                                {
-                                                    foreach (var categoryElem in categoryElements)
-                                                    {
-                                                        try
-                                                        {
-                                                            string categoryUrl = ElementExtractor.ExtractAttribute(categoryElem, categoryUrlAttribute);
-                                                            Console.WriteLine($"URL de la categoria encontrada: {categoryUrl}");
-
-                                                        }
-                                                        catch (Exception ex)
-                                                        {
-                                                            Console.WriteLine($"Error al extraer la URL de la categoria: {ex.Message}");
-                                                        }
-                                                    }
-                                                }
-
-                                            }
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("No se encontraron categorías en la respuesta de la API.");
+                                            Console.WriteLine("El selector de contenedores no es valido");
                                         }
                                     }
                                 }
+                                else
+                                {
+                                    Console.WriteLine("No se encontraron contenedores en la respuesta de la API.");
+                                }
+                                if (jsonContent.Categories != null && jsonContent.Categories.Count > 0)
+                                {
+                                    foreach (var categoryElement in jsonContent.Categories)
+                                    {
+                                        string categorySelector = categoryElement.category_selector;
+                                        string categoryUrlAttribute = categoryElement.category_url_attribute;
+                                        List<HtmlNode> categoryElements = ElementExtractor.FindElementsFromHtml(html, categorySelector);
+                                        if (categoryElements != null)
+                                        {
+                                            foreach (var categoryElem in categoryElements)
+                                            {
+                                                try
+                                                {
+                                                    string categoryUrl = ElementExtractor.ExtractAttribute(categoryElem, categoryUrlAttribute);
+                                                    Console.WriteLine($"URL de la categoria encontrada: {categoryUrl}");
+
+                                                }
+                                                catch (Exception ex)
+                                                {
+                                                    Console.WriteLine($"Error al extraer la URL de la categoria: {ex.Message}");
+                                                }
+                                            }
+                                        }
+
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No se encontraron categorías en la respuesta de la API.");
+                                }
+                            }
+                            catch (JsonException ex)
+                            {
+                                Console.WriteLine($"Error al parsear la respuesta JSON: {ex.Message}");
+                                return;
                             }
                             catch (Exception ex)
-
                             {
-                                Console.WriteLine("No se encontraron candidatos en la respuesta de la API.");
+                                Console.WriteLine($"Ocurrio un error (general): {ex.Message}");
+                                return;
                             }
-
-                            Console.WriteLine("URLs de compra encontradas:");
-                            foreach (var buyLink in _buyLinks)
-                            {
-                                Console.WriteLine($"Evento: {buyLink.Item1}, URL de compra: {buyLink.Item2}");
-                            }
-                            Console.WriteLine("URLs websource encontradas:");
-                            foreach (var websourceLink in _websourceLinks)
-                            {
-                                Console.WriteLine($"{websourceLink}");
-                            }
-
                         }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se encontraron candidatos en la respuesta de la API.");
+                    }
+                    Console.WriteLine("URLs de compra encontradas:");
+                    foreach (var buyLink in _buyLinks)
+                    {
+                        Console.WriteLine($"Evento: {buyLink.Item1}, URL de compra: {buyLink.Item2}");
+                    }
+                    Console.WriteLine("URLs websource encontradas:");
+                    foreach (var websourceLink in _websourceLinks)
+                    {
+                        Console.WriteLine($"{websourceLink}");
                     }
                 }
             }
@@ -354,7 +270,6 @@ namespace EventScraperBackend
                 {
                     Console.WriteLine("No se obtuvo respuesta de la API");
                 }
-
             }
             catch (ArgumentException e)
             {
@@ -396,26 +311,22 @@ namespace EventScraperBackend
     {
         [JsonPropertyName("container_selector")]
         public string container_selector { get; set; }
-
-        [JsonPropertyName("image_selector")]
-        public string image_selector { get; set; }
-
-        [JsonPropertyName("image_url_attribute")]
-        public string image_url_attribute { get; set; }
-
-        [JsonPropertyName("image_name_attribute")]
-        public string image_name_attribute { get; set; }
-
-        [JsonPropertyName("link_selector")]
-        public string link_selector { get; set; }
-
-        [JsonPropertyName("link_url_attribute")]
-        public string link_url_attribute { get; set; }
-        [JsonPropertyName("buy_link_selector")]
-        public string buy_link_selector { get; set; }
-
-        [JsonPropertyName("buy_link_url_attribute")]
-        public string buy_link_url_attribute { get; set; }
+        [JsonPropertyName("nombre_evento")]
+        public string nombre_evento { get; set; }
+        [JsonPropertyName("image_url_png")]
+        public string image_url_png { get; set; }
+        [JsonPropertyName("dia_horario")]
+        public string dia_horario { get; set; }
+        [JsonPropertyName("link_navegacion")]
+        public string link_navegacion { get; set; }
+        [JsonPropertyName("categoria")]
+        public string categoria { get; set; }
+        [JsonPropertyName("link_compra")]
+        public string link_compra { get; set; }
+        [JsonPropertyName("menu_categorias")]
+        public string menu_categorias { get; set; }
+        [JsonPropertyName("contedor_menu_categorias")]
+        public string contedor_menu_categorias { get; set; }
     }
     public class Category
     {

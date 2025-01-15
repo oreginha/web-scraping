@@ -13,7 +13,7 @@ namespace ConsoleApp1
         public static async Task Main(string[] args)
         {
             string driverPath = "C:\\SeleniumDrivers\\chromedriver";
-            string websiteUrl = "https://www.ticketek.com.ar";
+            string websiteUrl = "https://www.ticketek.com.ar/musica";
             int randomPort = new Random().Next(49152, 65535);
 
             // Configuración del driver
@@ -52,9 +52,9 @@ namespace ConsoleApp1
                     {
 
                         string html = driver.PageSource;
-                        string cleanHtml = HtmlCleaner.CleanHtml(html); // Limpiar el HTML con la clase HtmlCleaner
+                       List<string> cleanHtml = HtmlCleaner.CleanHtml(html); // Limpiar el HTML con la clase HtmlCleaner
                         Console.WriteLine("HTML extraído y enviado al EventProcessor.");
-                        eventProcessor.ProcessHtml(cleanHtml);
+                        eventProcessor.ProcessHtml(cleanHtml[0]);
                         await Task.Delay(2000);  // Espera de 2 segundos entre peticiones a la API.
                         Console.WriteLine("Presiona cualquier tecla para extraer el html o ESC para salir");
 

@@ -138,9 +138,7 @@ namespace EventScraperBackend
 
                 string responseBody = await response.Content.ReadAsStringAsync();
 
-                // Limpiar la respuesta con regex
-                string cleanedResponse = Regex.Replace(responseBody, @"^```json\s*|```$", "", RegexOptions.Singleline);
-                if (string.IsNullOrEmpty(cleanedResponse))
+                if (string.IsNullOrEmpty(responseBody))
                 {
                     Console.WriteLine("La respuesta de la API está vacía.");
                     return @"{
@@ -148,9 +146,9 @@ namespace EventScraperBackend
                                       ""categories"": []
                                        }";
                 }
-                if (cleanedResponse.StartsWith("{"))
+                if (responseBody.StartsWith("{"))
                 {
-                    return cleanedResponse;
+                    return responseBody;
                 }
                 else
                 {
@@ -158,7 +156,7 @@ namespace EventScraperBackend
                     return @"{
                                  ""containers"": [],
                                  ""categories"": []
-                                    }";
+                                   }";
                 }
             }
             catch (HttpRequestException ex)
