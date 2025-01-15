@@ -7,6 +7,8 @@ C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\AngleSharp.d
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\Azure.AI.TextAnalytics.dll
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\HtmlAgilityPack.dll
+C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\HtmlAgilityPack.CssSelector.Core.dll
+C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\HtmlAgilityPack.CssSelectors.NetCore.dll
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\System.Net.Http.Formatting.dll
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\Microsoft.ML.Core.dll
@@ -32,6 +34,7 @@ C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\System.Net.H
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\System.Numerics.Tensors.dll
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\System.Text.Encodings.Web.dll
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\System.Text.Json.dll
+C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\System.Xml.XPath.XmlDocument.dll
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\runtimes\linux-arm\native\libLdaNative.so
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\runtimes\linux-arm\native\libLdaNative.so.dbg
 C:\Users\Facu\source\repos\ConsoleApp1\ConsoleApp1\bin\Debug\net8.0\runtimes\linux-arm64\native\libLdaNative.so

@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using EventScraperBackend.Models;
+using System.Text.RegularExpressions;
 
 namespace EventScraperBackend
 {
@@ -134,21 +135,31 @@ namespace EventScraperBackend
                 HttpResponseMessage response = await _httpClient.SendAsync(request);
                 response.EnsureSuccessStatusCode();
 
+
                 string responseBody = await response.Content.ReadAsStringAsync();
-                if (responseBody.StartsWith("{"))
+
+                // Limpiar la respuesta con regex
+                string cleanedResponse = Regex.Replace(responseBody, @"^```json\s*|```$", "", RegexOptions.Singleline);
+                if (string.IsNullOrEmpty(cleanedResponse))
                 {
-                    return responseBody;
+                    Console.WriteLine("La respuesta de la API está vacía.");
+                    return @"{
+                                      ""containers"": [],
+                                      ""categories"": []
+                                       }";
+                }
+                if (cleanedResponse.StartsWith("{"))
+                {
+                    return cleanedResponse;
                 }
                 else
                 {
-                    Console.WriteLine("La respuesta de la API no es un JSON valido");
+                    Console.WriteLine("La respuesta de la API no es un JSON válido. Retornando JSON vacio");
                     return @"{
-                                  ""containers"": [],
-                                  ""categories"": []
-                                 }";
+                                 ""containers"": [],
+                                 ""categories"": []
+                                    }";
                 }
-
-
             }
             catch (HttpRequestException ex)
             {
@@ -164,7 +175,10 @@ namespace EventScraperBackend
             catch (JsonException ex)
             {
                 Console.WriteLine($"Error al parsear la respuesta JSON: {ex.Message}");
-                return null;
+                return @"{
+                                  ""containers"": [],
+                                   ""categories"": []
+                                    }";
             }
 
         }

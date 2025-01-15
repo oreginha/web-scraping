@@ -3,32 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\geminiapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\geminiapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\eventdataextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\eventdataextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\eventprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\eventprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\htmlcleaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\htmlcleaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\elementextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\elementextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\scrapers\\ticketekscraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\scrapers\\ticketekscraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\htmlcleaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\htmlcleaner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\eventdataextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\eventdataextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\basescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\basescraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|c:\\users\\facu\\source\\repos\\consoleapp1\\consoleapp1\\core\\geminiapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1203A7-7218-47D1-83EC-E5D5BDB32D69}|ConsoleApp1\\ConsoleApp1.csproj|solutionrelative:consoleapp1\\core\\geminiapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -55,40 +51,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HtmlCleaner.cs",
-              "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\HtmlCleaner.cs",
-              "RelativeDocumentMoniker": "ConsoleApp1\\CORE\\HtmlCleaner.cs",
-              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\HtmlCleaner.cs",
-              "RelativeToolTip": "ConsoleApp1\\CORE\\HtmlCleaner.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAYwCoAAAABAAAAAAAAAA==",
+              "Title": "ElementExtractor.cs",
+              "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\ElementExtractor.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\CORE\\ElementExtractor.cs",
+              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\ElementExtractor.cs",
+              "RelativeToolTip": "ConsoleApp1\\CORE\\ElementExtractor.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAwwHcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-13T04:26:21.343Z",
+              "WhenOpened": "2025-01-15T04:37:59.162Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BaseScraper.cs",
-              "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\BaseScraper.cs",
-              "RelativeDocumentMoniker": "ConsoleApp1\\CORE\\BaseScraper.cs",
-              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\BaseScraper.cs",
-              "RelativeToolTip": "ConsoleApp1\\CORE\\BaseScraper.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAADgvx0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T16:55:41.014Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "GeminiApiClient.cs",
               "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\GeminiApiClient.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\CORE\\GeminiApiClient.cs",
               "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\GeminiApiClient.cs",
               "RelativeToolTip": "ConsoleApp1\\CORE\\GeminiApiClient.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAAwwKsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAwwLkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-12T16:52:06.511Z",
+              "WhenOpened": "2025-01-14T03:23:31.749Z",
               "EditorCaption": ""
             },
             {
@@ -97,37 +80,37 @@
               "Title": "EventProcessor.cs",
               "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\EventProcessor.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\CORE\\EventProcessor.cs",
-              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\EventProcessor.cs",
-              "RelativeToolTip": "ConsoleApp1\\CORE\\EventProcessor.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAtwGgAAAAVAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\EventProcessor.cs*",
+              "RelativeToolTip": "ConsoleApp1\\CORE\\EventProcessor.cs*",
+              "ViewState": "AgIAAOEAAAAAAAAAAIAwwP4AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-12T15:10:35.286Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "HtmlCleaner.cs",
+              "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\HtmlCleaner.cs",
+              "RelativeDocumentMoniker": "ConsoleApp1\\CORE\\HtmlCleaner.cs",
+              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\HtmlCleaner.cs",
+              "RelativeToolTip": "ConsoleApp1\\CORE\\HtmlCleaner.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T04:26:21.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "EventDataExtractor.cs",
               "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\EventDataExtractor.cs",
               "RelativeDocumentMoniker": "ConsoleApp1\\CORE\\EventDataExtractor.cs",
               "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\CORE\\EventDataExtractor.cs",
               "RelativeToolTip": "ConsoleApp1\\CORE\\EventDataExtractor.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAYwK0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAASwBAAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-12T15:05:32.847Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TicketekScraper.cs",
-              "DocumentMoniker": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\SCRAPERS\\TicketekScraper.cs",
-              "RelativeDocumentMoniker": "ConsoleApp1\\SCRAPERS\\TicketekScraper.cs",
-              "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\SCRAPERS\\TicketekScraper.cs",
-              "RelativeToolTip": "ConsoleApp1\\SCRAPERS\\TicketekScraper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-10T03:19:05.382Z",
               "EditorCaption": ""
             },
             {
@@ -138,7 +121,7 @@
               "RelativeDocumentMoniker": "ConsoleApp1\\Program.cs",
               "ToolTip": "C:\\Users\\Facu\\source\\repos\\ConsoleApp1\\ConsoleApp1\\Program.cs",
               "RelativeToolTip": "ConsoleApp1\\Program.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAwwDYAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAIAwwDUAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-10T02:09:08.839Z",
               "EditorCaption": ""

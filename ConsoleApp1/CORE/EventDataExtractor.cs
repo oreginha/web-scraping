@@ -5,11 +5,64 @@ using System;
 using System.Collections.Generic;
 using EventScraperBackend.Models;
 using System.Text;
+using HtmlAgilityPack;
 
 namespace EventScraperBackend.Core
 {
     public class EventDataExtractor
     {
+        public EventData ExtractData(HtmlNode container, IWebDriver driver, WebDriverWait wait, string url, string imageSelector, string imageUrlAttribute, string imageNameAttribute, string linkSelector, string linkUrlAttribute, string html)
+        {
+
+            EventData eventData = new EventData();
+            try
+            {
+                if (!string.IsNullOrEmpty(imageSelector) && !string.IsNullOrEmpty(imageUrlAttribute) && !string.IsNullOrEmpty(imageNameAttribute))
+                {
+                    if (imageSelector.StartsWith("img img"))
+                    {
+                        imageSelector = imageSelector.Replace("img img", "img.img");
+                    }
+                    HtmlNode imageElement = ElementExtractor.FindElement(html, imageSelector);
+                    
+                    string ImageUrl = ElementExtractor.FindElementByAtribute(imageElement.OuterHtml, imageUrlAttribute);
+                    string Name = ElementExtractor.FindElementByAtribute(imageElement.OuterHtml, imageNameAttribute);
+
+                }
+                if (!string.IsNullOrEmpty(linkSelector) && !string.IsNullOrEmpty(linkUrlAttribute) && !string.IsNullOrEmpty(url))
+                {
+                    HtmlNode boton = ElementExtractor.FindElement(html, linkSelector);
+                    eventData.Url = ElementExtractor.ExtractAttribute(boton, linkUrlAttribute);
+                    // Abre una nueva pestaña
+                    string originalWindow = driver.CurrentWindowHandle;
+                    NavigationHelper.OpenNewTabAndNavigate(driver, url);
+                    bool footerExists = false;
+                    try
+                    {
+                        var footer = driver.FindElement(By.CssSelector("tkt-image-show no-padding.text-uppercase.col-xs-10 bg-grey"));
+                    }
+                    catch (Exception ex)
+                    {
+                        footerExists = true;
+                    }
+                    if (footerExists)
+                    {
+                        eventData = ProcessEventWithHrefs(driver, wait, url, originalWindow);
+                    }
+                    else
+                    {
+                        eventData = ProcessEventWithoutHrefs(driver, wait, url, originalWindow);
+                    }
+
+                    NavigationHelper.CloseCurrentTabAndSwitchBack(driver, originalWindow);
+                }
+            }
+            finally
+            {
+            }
+            return eventData;
+        }
+
         public EventData ExtractData(IWebElement container, IWebDriver driver, WebDriverWait wait, string url, string imageSelector, string imageUrlAttribute, string imageNameAttribute, string linkSelector, string linkUrlAttribute)
         {
             EventData eventData = new EventData();
@@ -23,16 +76,13 @@ namespace EventScraperBackend.Core
 
                 IWebElement boton = ElementExtractor.FindElement(container, By.CssSelector(linkSelector), wait);
                 eventData.Url = ElementExtractor.ExtractAttribute(boton, linkUrlAttribute);
-
                 // Abre una nueva pestaña
                 string originalWindow = driver.CurrentWindowHandle;
-
+                NavigationHelper.OpenNewTabAndNavigate(driver, url);
                 bool footerExists = false;
                 try
                 {
-                    // Se comenta la linea que hacia la navegacion y se cambia por una comprobacion
                     var footer = driver.FindElement(By.CssSelector("tkt-image-show no-padding.text-uppercase.col-xs-10 bg-grey"));
-
                 }
                 catch (Exception ex)
                 {
@@ -41,16 +91,14 @@ namespace EventScraperBackend.Core
                 }
                 if (footerExists)
                 {
-                    NavigationHelper.OpenNewTabAndNavigate(driver, url); // Abrir la pestaña solo si existe el footer
                     eventData = ProcessEventWithHrefs(driver, wait, url, originalWindow);
-                    NavigationHelper.CloseCurrentTabAndSwitchBack(driver, originalWindow);
                 }
                 else
                 {
-                    NavigationHelper.OpenNewTabAndNavigate(driver, url); // Abrir la pestaña solo si no existe el footer
                     eventData = ProcessEventWithoutHrefs(driver, wait, url, originalWindow);
-                    NavigationHelper.CloseCurrentTabAndSwitchBack(driver, originalWindow);
                 }
+
+                NavigationHelper.CloseCurrentTabAndSwitchBack(driver, originalWindow);
 
             }
             finally
